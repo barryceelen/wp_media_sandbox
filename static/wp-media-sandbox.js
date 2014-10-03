@@ -10,6 +10,10 @@ jQuery(function ($) {
 		wp.media.editor.open();
 	});
 
+	$('#wp-media-sandbox-media-featuredImage-frame-open').click(function () {
+		wp.media.featuredImage.frame().open();
+	});
+
 	var originalToolbar = wp.media.view.Toolbar.Embed;
 	wp.media.view.Toolbar.Embed = originalToolbar.extend({
 		// code modified from media-views.js, l 2500

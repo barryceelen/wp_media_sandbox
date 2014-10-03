@@ -7,7 +7,8 @@
 
 	<p>
 		<button id="wp-media-sandbox-media-open" class="button">wp.media.open()</button>
-		<button id="wp-media-sandbox-media-editor-open" class="button">wp.media.editor.open()</button>
+		<button id="wp-media-sandbox-media-editor-open" class="button">Insert Media | wp.media.editor.open()</button>
+		<button id="wp-media-sandbox-media-featuredImage-frame-open" class="button">Set Featured Image | wp.media.featuredImage.frame().open()</button>
 	</p>
 
 <pre>
@@ -106,17 +107,15 @@ wp.media.view.MediaFrame.MediaDetails                         media-audiovideo.j
 wp.media.view.MediaFrame.VideoDetails                         media-audiovideo.js
 wp.media.view.VideoDetails                                    media-audiovideo.js
 
-wp.media._galleryDefaults                                     media-editor.js
-wp.media.coerce                                               media-editor.js
-wp.media.collection                                           media-editor.js
-wp.media.editor                                               media-editor.js
-wp.media.embed                                                media-editor.js
-wp.media.featuredImage                                        media-editor.js
-wp.media.gallery                                              media-editor.js
-wp.media.galleryDefaults                                      media-editor.js
-wp.media.galleryDefaults                                      media-editor.js
-wp.media.string                                               media-editor.js
-wp.media.view.settings.post.featuredImageId                   media-editor.js
+wp.media.coerce                                               media-editor.js function
+wp.media.collection                                           media-editor.js function
+wp.media.editor                                               media-editor.js {}
+wp.media.embed                                                media-editor.js {}
+wp.media.featuredImage                                        media-editor.js {}
+wp.media.gallery                                              media-editor.js new wp.media.collection({...})
+wp.media.galleryDefaults                                      media-editor.js {}
+wp.media._galleryDefaults                                     media-editor.js {}
+wp.media.string                                               media-editor.js {}
 
 wp.media.controller.EditAttachmentMetadata                    media-grid.js
 wp.media.view.Attachment.Details.TwoColumn                    media-grid.js
