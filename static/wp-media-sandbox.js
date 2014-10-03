@@ -2,19 +2,12 @@
 
 jQuery(function ($) {
 
-	var button = $('#wp-media-sandbox-button');
+	$('#wp-media-sandbox-media-open').click(function () {
+		wp.media({title: 'Mauris non sem volutpat'}).open();
+	});
 
-	button.click(function () {
-
-		//wp.media({title: 'aaaaaaaa'}).open();
+	$('#wp-media-sandbox-media-editor-open').click(function () {
 		wp.media.editor.open();
-		return;
-		v.open();
-
-		var c = {trigger: function (){}};
-		var v = new wp.media.view.Modal({controller: c, title: 'Title'});
-		v.open();
-
 	});
 
 	var originalToolbar = wp.media.view.Toolbar.Embed;

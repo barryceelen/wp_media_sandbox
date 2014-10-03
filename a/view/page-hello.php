@@ -5,7 +5,10 @@
 
 	<h2>WP Media Sandbox</h2>
 
-	<p><button id="wp-media-sandbox-button">Click</button></p>
+	<p>
+		<button id="wp-media-sandbox-media-open" class="button">wp.media.open()</button>
+		<button id="wp-media-sandbox-media-editor-open" class="button">wp.media.editor.open()</button>
+	</p>
 
 <pre>
 PHP
@@ -154,7 +157,7 @@ wp.media.controller.StateMachine                              media-views.js {} 
 
 wp.Backbone.View
 	wp.media.View                                                 media-views.js
-		wp.media.view.Attachment                                  media-views.js media.View && {}
+		wp.media.view.Attachment                                  media-views.js && {}
 			wp.media.view.Attachment.Details                      media-views.js
 			wp.media.view.Attachment.EditLibrary                  media-views.js
 			wp.media.view.Attachment.Library                      media-views.js
