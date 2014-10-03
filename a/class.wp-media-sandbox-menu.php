@@ -12,9 +12,6 @@ class WP_Media_Sandbox_Menu
 	private function add_admin_actions()
 	{
 		add_action('admin_menu', array($this, '_admin_action_admin_menu'));
-		add_action('add_meta_boxes', function () {
-			var_dump('add_meta_boxes');
-		});
 	}
 
 	/**
