@@ -140,17 +140,24 @@ wp.Backbone.View
 				wp.media.view.MediaFrame.EditAttachments      media-grid.js media.view.MediaFrame
 				wp.media.view.MediaFrame.Manage               media-grid.js media.view.MediaFrame
 
-wp.media.attachment                                           media-models.js
-wp.media.frame                                                media-models.js
-wp.media.query                                                media-models.js
-wp.media.model.Attachment                                     media-models.js
-wp.media.model.Attachments                                    media-models.js
-wp.media.model.PostImage                                      media-models.js
-wp.media.model.Query                                          media-models.js
-wp.media.model.Selection                                      media-models.js
-wp.media.model.l10n                                           media-models.js
-wp.media.model.settings                                       media-models.js
+=== media-models.js =========================================
+Backbone.Model
+	wp.media.model.Attachment                                 media-models.js Backbone.Model
+	wp.media.model.PostImage                                  media-models.js Backbone.Model
+wp.media.model.Attachments                                    media-models.js Backbone.Collection
+	wp.media.model.Query                                      media-models.js wp.media.model.Attachments
+	wp.media.model.Selection                                  media-models.js wp.media.modal.Attachments
+{}
+	wp.media                                                  media-models.js {}
+function
+	wp.media.attachment                                       media-models.js function
+	wp.media.query                                            media-models.js function
+etc
+	wp.media.frame                                            media-models.js current frame?
+	wp.media.model.l10n                                       media-models.js
+	wp.media.model.settings                                   media-models.js
 
+=== media-views.js ==========================================
 wp.media.controller.Region                                    media-views.js {} && Backbone.Model
 wp.media.controller.State                                     media-views.js {} && Backbone.Model
 	wp.media.controller.Cropper                               media-views.js
@@ -169,65 +176,64 @@ wp.media.controller.StateMachine                              media-views.js {} 
 
 === media-views.js ==========================================
 wp.Backbone.View
-	wp.media.View                                                 media-views.js
-		wp.media.view.Attachment                                  media-views.js && {}
-			wp.media.view.Attachment.Details                      media-views.js
-			wp.media.view.Attachment.EditLibrary                  media-views.js
-			wp.media.view.Attachment.Library                      media-views.js
-			wp.media.view.Attachment.Selection                    media-views.js
-				wp.media.view.Attachment.EditSelection            media-views.js
-		wp.media.view.AttachmentCompat                            media-views.js
-		wp.media.view.AttachmentFilters                           media-views.js
-			wp.media.view.AttachmentFilters.All                   media-views.js
-			wp.media.view.AttachmentFilters.Uploaded              media-views.js
-		wp.media.view.Attachments                                 media-views.js
-			wp.media.view.Attachments.Selection                   media-views.js
-		wp.media.view.AttachmentsBrowser                          media-views.js
-		wp.media.view.Button                                      media-views.js
-		wp.media.view.ButtonGroup                                 media-views.js
-		wp.media.view.Cropper                                     media-views.js
-		wp.media.view.EditImage                                   media-views.js
-		wp.media.view.EditorUploader                              media-views.js
-		wp.media.view.Embed                                       media-views.js
-		wp.media.view.EmbedUrl                                    media-views.js
-		wp.media.view.FocusManager                                media-views.js
-		wp.media.view.Frame                                       media-views.js && wp.media.controller.StateMachine
-			wp.media.view.MediaFrame                              media-views.js && {}
-				wp.media.view.MediaFrame.Select                   media-views.js
-					wp.media.view.MediaFrame.ImageDetails         media-views.js
-					wp.media.view.MediaFrame.Post                 media-views.js
-		wp.media.view.Iframe                                      media-views.js
-		wp.media.view.Label                                       media-views.js
-		wp.media.view.MenuItem                                    media-views.js
-			wp.media.view.RouterItem                              media-views.js
-		wp.media.view.Modal                                       media-views.js
-		wp.media.view.PriorityList                                media-views.js
-			wp.media.view.Menu                                    media-views.js
-				wp.media.view.Router                              media-views.js
-			wp.media.view.Sidebar                                 media-views.js
-		wp.media.view.Search                                      media-views.js
-		wp.media.view.Selection                                   media-views.js
-		wp.media.view.Settings                                    media-views.js
-			wp.media.view.EmbedLink                               media-views.js
-			wp.media.view.Settings.AttachmentDisplay              media-views.js
-				wp.media.view.EmbedImage                          media-views.js
-				wp.media.view.ImageDetails                        media-views.js
-			wp.media.view.Settings.Gallery                        media-views.js
-			wp.media.view.Settings.Playlist                       media-views.js
-		wp.media.view.Spinner                                     media-views.js
-		wp.media.view.Toolbar                                     media-views.js
-			wp.media.view.Toolbar.Select                          media-views.js
-				wp.media.view.Toolbar.Embed                       media-views.js
-		wp.media.view.UploaderInline                              media-views.js
-		wp.media.view.UploaderStatus                              media-views.js
-		wp.media.view.UploaderStatusError                         media-views.js
-		wp.media.view.UploaderWindow                              media-views.js
-
-wp.media.events                                               media-views.js
-wp.media.model.settings.post                                  media-views.js
-wp.media.selectionSync                                        media-views.js
-wp.media.transition                                           media-views.js
-
+	wp.media.View                                             media-views.js
+		wp.media.view.Attachment                              media-views.js && {}
+			wp.media.view.Attachment.Details                  media-views.js
+			wp.media.view.Attachment.EditLibrary              media-views.js
+			wp.media.view.Attachment.Library                  media-views.js
+			wp.media.view.Attachment.Selection                media-views.js
+				wp.media.view.Attachment.EditSelection        media-views.js
+		wp.media.view.AttachmentCompat                        media-views.js
+		wp.media.view.AttachmentFilters                       media-views.js
+			wp.media.view.AttachmentFilters.All               media-views.js
+			wp.media.view.AttachmentFilters.Uploaded          media-views.js
+		wp.media.view.Attachments                             media-views.js
+			wp.media.view.Attachments.Selection               media-views.js
+		wp.media.view.AttachmentsBrowser                      media-views.js
+		wp.media.view.Button                                  media-views.js
+		wp.media.view.ButtonGroup                             media-views.js
+		wp.media.view.Cropper                                 media-views.js
+		wp.media.view.EditImage                               media-views.js
+		wp.media.view.EditorUploader                          media-views.js
+		wp.media.view.Embed                                   media-views.js
+		wp.media.view.EmbedUrl                                media-views.js
+		wp.media.view.FocusManager                            media-views.js
+		wp.media.view.Frame                                   media-views.js && wp.media.controller.StateMachine
+			wp.media.view.MediaFrame                          media-views.js && {}
+				wp.media.view.MediaFrame.Select               media-views.js
+					wp.media.view.MediaFrame.ImageDetails     media-views.js
+					wp.media.view.MediaFrame.Post             media-views.js
+		wp.media.view.Iframe                                  media-views.js
+		wp.media.view.Label                                   media-views.js
+		wp.media.view.MenuItem                                media-views.js
+			wp.media.view.RouterItem                          media-views.js
+		wp.media.view.Modal                                   media-views.js
+		wp.media.view.PriorityList                            media-views.js
+			wp.media.view.Menu                                media-views.js
+				wp.media.view.Router                          media-views.js
+			wp.media.view.Sidebar                             media-views.js
+		wp.media.view.Search                                  media-views.js
+		wp.media.view.Selection                               media-views.js
+		wp.media.view.Settings                                media-views.js
+			wp.media.view.EmbedLink                           media-views.js
+			wp.media.view.Settings.AttachmentDisplay          media-views.js
+				wp.media.view.EmbedImage                      media-views.js
+				wp.media.view.ImageDetails                    media-views.js
+			wp.media.view.Settings.Gallery                    media-views.js
+			wp.media.view.Settings.Playlist                   media-views.js
+		wp.media.view.Spinner                                 media-views.js
+		wp.media.view.Toolbar                                 media-views.js
+			wp.media.view.Toolbar.Select                      media-views.js
+				wp.media.view.Toolbar.Embed                   media-views.js
+		wp.media.view.UploaderInline                          media-views.js
+		wp.media.view.UploaderStatus                          media-views.js
+		wp.media.view.UploaderStatusError                     media-views.js
+		wp.media.view.UploaderWindow                          media-views.js
+etc
+	wp.media.events                                           media-views.js
+	wp.media.model.settings.post                              media-views.js
+	wp.media.selectionSync                                    media-views.js
+	wp.media.transition                                       media-views.js
 </pre>
 
 <h3>Reference</h3>
