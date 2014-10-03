@@ -107,6 +107,7 @@ wp.media.view.MediaFrame.MediaDetails                         media-audiovideo.j
 wp.media.view.MediaFrame.VideoDetails                         media-audiovideo.js
 wp.media.view.VideoDetails                                    media-audiovideo.js
 
+=== media-editor.js =========================================
 wp.media.coerce                                               media-editor.js function
 wp.media.collection                                           media-editor.js function
 wp.media.editor                                               media-editor.js {}
@@ -117,15 +118,27 @@ wp.media.galleryDefaults                                      media-editor.js {}
 wp.media._galleryDefaults                                     media-editor.js {}
 wp.media.string                                               media-editor.js {}
 
-wp.media.controller.EditAttachmentMetadata                    media-grid.js
-wp.media.view.Attachment.Details.TwoColumn                    media-grid.js
-wp.media.view.DateFilter                                      media-grid.js
-wp.media.view.DeleteSelectedButton                            media-grid.js
-wp.media.view.EditImage.Details                               media-grid.js
-wp.media.view.MediaFrame.EditAttachments                      media-grid.js
-wp.media.view.MediaFrame.Manage                               media-grid.js
-wp.media.view.MediaFrame.Manage.Router                        media-grid.js
-wp.media.view.SelectModeToggleButton                          media-grid.js
+=== media-grid.js ===========================================
+Backbone.Router
+	wp.media.view.MediaFrame.Manage.Router                    media-grid.js Backbone.Router
+media.controller.State
+	wp.media.controller.EditAttachmentMetadata                media-grid.js media.controller.State
+wp.Backbone.View
+	wp.media.View
+		wp.media.view.Attachment
+			wp.media.view.Attachment.Details
+				wp.media.view.Attachment.Details.TwoColumn    media-grid.js media.view.Attachment.Details
+		wp.media.view.AttachmentFilters
+			wp.media.view.DateFilter                          media-grid.js media.view.AttachmentFilters
+		wp.media.view.Button
+			wp.media.view.DeleteSelectedButton                media-grid.js media.view.Button
+			wp.media.view.SelectModeToggleButton              media-grid.js media.view.Button
+		wp.media.view.EditImage
+			wp.media.view.EditImage.Details                   media-grid.js media.view.EditImage
+		wp.media.view.Frame
+			wp.media.view.MediaFrame
+				wp.media.view.MediaFrame.EditAttachments      media-grid.js media.view.MediaFrame
+				wp.media.view.MediaFrame.Manage               media-grid.js media.view.MediaFrame
 
 wp.media.attachment                                           media-models.js
 wp.media.frame                                                media-models.js
@@ -154,6 +167,7 @@ wp.media.controller.State                                     media-views.js {} 
 		wp.media.controller.ReplaceImage                      media-views.js
 wp.media.controller.StateMachine                              media-views.js {} && Backbone.Collection && Backbone.Model && Backbone.Events
 
+=== media-views.js ==========================================
 wp.Backbone.View
 	wp.media.View                                                 media-views.js
 		wp.media.view.Attachment                                  media-views.js && {}
