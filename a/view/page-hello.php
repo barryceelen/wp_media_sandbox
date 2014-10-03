@@ -108,15 +108,18 @@ wp.media.view.MediaFrame.VideoDetails                         media-audiovideo.j
 wp.media.view.VideoDetails                                    media-audiovideo.js
 
 === media-editor.js =========================================
-wp.media.coerce                                               media-editor.js function
-wp.media.collection                                           media-editor.js function
-wp.media.editor                                               media-editor.js {}
-wp.media.embed                                                media-editor.js {}
-wp.media.featuredImage                                        media-editor.js {}
-wp.media.gallery                                              media-editor.js new wp.media.collection({...})
-wp.media.galleryDefaults                                      media-editor.js {}
-wp.media._galleryDefaults                                     media-editor.js {}
-wp.media.string                                               media-editor.js {}
+{}
+	wp.media._galleryDefaults                                 media-editor.js {}
+	wp.media.editor                                           media-editor.js {}
+	wp.media.embed                                            media-editor.js {}
+	wp.media.featuredImage                                    media-editor.js {}
+	wp.media.galleryDefaults                                  media-editor.js {}
+	wp.media.string                                           media-editor.js {}
+function
+	wp.media.coerce                                           media-editor.js function
+	wp.media.collection                                       media-editor.js function
+etc
+	wp.media.gallery                                          media-editor.js new wp.media.collection({...})
 
 === media-grid.js ===========================================
 Backbone.Router
