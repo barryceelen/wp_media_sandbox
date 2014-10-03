@@ -11,7 +11,7 @@
 		<button id="wp-media-sandbox-media-featuredImage-frame-open" class="button">Set Featured Image | wp.media.featuredImage.frame().open()</button>
 	</p>
 
-<pre>
+<pre style="tab-size: 4;">
 PHP
 media.php
 media-template.php
