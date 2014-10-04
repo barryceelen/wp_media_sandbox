@@ -18,6 +18,11 @@
 
 	<button id="wp-media-sandbox-button" class="button">BUTTON</button>
 
+	<br/>
+	<button id="wp-media-sandbox-1">demo 1</button> <br/>
+	<button id="wp-media-sandbox-2">demo 2</button> <br/>
+	<button id="wp-media-sandbox-3">demo 3</button> <br/>
+
 <br/>
 <button id="wp-media-sandbox-view-modal">new wp.media.view.Modal</button>
 <pre>
