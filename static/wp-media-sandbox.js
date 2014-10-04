@@ -2,15 +2,16 @@
 
 jQuery(function ($) {
 
-	var Frame = wp.media.view.Frame.extend({
-		className: 'media-frame',
-		template:  wp.media.template('media-frame'),
-		regions: ['r1', 'r2', 'r3']
-	});
-
 	$('#wp-media-sandbox-button').click(function () {
+		var Frame = wp.media.view.Frame.extend({
+			className: 'media-frame',
+			template:  wp.media.template('media-frame'),
+			regions: ['r1', 'r2', 'r3']
+		});
 		var f = new Frame();
-		f.open();
+		var m = new wp.media.view.Modal({controller: f});
+		console.log(f);
+		m.open();
 	});
 
 	$('#wp-media-sandbox-media-open').click(function () {
