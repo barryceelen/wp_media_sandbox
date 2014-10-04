@@ -1,14 +1,105 @@
 <?php if (!defined('ABSPATH')) exit;
 
 ?>
+<style type="text/css">pre { tab-size: 4px; }</style>
+
+<script type="text/html" id="tmpl-wp-media-sandbox-frame">
+	<div class="media-frame-menu"></div>
+	<div class="media-frame-title"></div>
+	<div class="media-frame-router"></div>
+	<div class="media-frame-content"></div>
+	<div class="media-frame-toolbar"></div>
+	<div class="media-frame-uploader"></div>
+</script>
+
 <div class="wrap">
 
 	<h2>WP Media Sandbox</h2>
 
+	<button id="wp-media-sandbox-button" class="button">BUTTON</button>
+
+<br/>
+<button id="wp-media-sandbox-view-modal">new wp.media.view.Modal</button>
+<pre>
+// Initialize modal container view.
+if ( this.options.modal ) {
+	this.modal = new media.view.Modal({
+		controller: this,
+		title:      this.options.title
+	});
+
+	this.modal.content( this );
+}
+</pre>
+
+<button id="wp-media-sandbox-view-uploader_window">new wp.media.view.UploaderWindow</button>
+<pre>
+// Initialize window-wide uploader.
+if ( this.options.uploader ) {
+	this.uploader = new media.view.UploaderWindow({
+		controller: this,
+		uploader: {
+			dropzone:  this.modal ? this.modal.$el : this.$el,
+			container: this.$el
+		}
+	});
+	this.views.set( '.media-frame-uploader', this.uploader );
+}
+</pre>
+
+	<br/>
+	<button id="wp-media-sandbox-media-open" class="button">wp.media.open()</button>
+	<br/>
+	<button id="wp-media-sandbox-media-select-open" class="button">wp.media({frame: 'select'}).open()</button>
+<pre>
+// Creates one of the wp.view.MediaFrame and returns it
+if ( 'select' === attributes.frame && MediaFrame.Select ) {
+	frame = new MediaFrame.Select( attributes );
+} else if ( 'post' === attributes.frame && MediaFrame.Post ) {
+	frame = new MediaFrame.Post( attributes );
+} else if ( 'manage' === attributes.frame && MediaFrame.Manage ) {
+	frame = new MediaFrame.Manage( attributes );
+} else if ( 'image' === attributes.frame && MediaFrame.ImageDetails ) {
+	frame = new MediaFrame.ImageDetails( attributes );
+} else if ( 'audio' === attributes.frame && MediaFrame.AudioDetails ) {
+	frame = new MediaFrame.AudioDetails( attributes );
+} else if ( 'video' === attributes.frame && MediaFrame.VideoDetails ) {
+	frame = new MediaFrame.VideoDetails( attributes );
+} else if ( 'edit-attachments' === attributes.frame && MediaFrame.EditAttachments ) {
+	frame = new MediaFrame.EditAttachments( attributes );
+}
+</pre>
+
+<br/>
+<button id="wp-media-sandbox-media-editor-open" class="button">Insert Media into Editor | wp.media.editor.open()</button>
+<pre>
+if (window.tinymce) {
+
+}
+</pre>
+
 	<p>
-		<button id="wp-media-sandbox-media-open" class="button">wp.media.open()</button>
-		<button id="wp-media-sandbox-media-editor-open" class="button">Insert Media | wp.media.editor.open()</button>
 		<button id="wp-media-sandbox-media-featuredImage-frame-open" class="button">Set Featured Image | wp.media.featuredImage.frame().open()</button>
+
+		<br/>
+
+		<br/>
+		<button id="wp-media-sandbox-media-post-open" class="button">wp.media({frame: 'post'}).open</button>
+
+		<br/>
+		<button id="wp-media-sandbox-media-manage-open" class="button">wp.media({frame: 'manage'}).open()</button>
+
+		<br/>
+		<button id="wp-media-sandbox-media-image-open" class="button">wp.media({frame: 'image'}).open()</button>
+
+		<br/>
+		<button id="wp-media-sandbox-media-audio-open" class="button">wp.media({frame: 'audio'}).open()</button>
+
+		<br/>
+		<button id="wp-media-sandbox-media-video-open" class="button">wp.media({frame: 'video'}).open()</button>
+
+		<br/>
+		<button id="wp-media-sandbox-media-edit-attachments-open" class="button">wp.media({frame: 'edit-attachments'}).open()</button>
 	</p>
 
 <pre style="tab-size: 4;">
