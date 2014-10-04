@@ -22,6 +22,7 @@
 	<button id="wp-media-sandbox-1">demo 1</button> <br/>
 	<button id="wp-media-sandbox-2">demo 2</button> <br/>
 	<button id="wp-media-sandbox-3">demo 3</button> <br/>
+	<button id="wp-media-sandbox-4">demo 4</button> <br/>
 
 <br/>
 <button id="wp-media-sandbox-view-modal">new wp.media.view.Modal</button>
@@ -342,6 +343,7 @@ etc
 	<li><a href="http://wordpress.stackexchange.com/a/82057/58387">Add a menu item to Wordpress 3.5 Media Manager</a></li>
 	<li><a href="https://gist.github.com/Fab1en/4586865">Draft plugin example to add a javascript menu into the WP3.5 Media Library popup</a></li>
 	<li><a href="https://github.com/thomasgriffin/New-Media-Image-Uploader">New Media Image Uploader</a></li>
+	<li><a href="http://wordpress.stackexchange.com/q/130585/58387">Customizing the 3.5 “Add Media” popup (Backbone.js)</a></li>
 </ul>
 
 </div>

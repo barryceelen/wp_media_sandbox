@@ -2,6 +2,15 @@
 
 jQuery(function ($) {
 
+// for debug : trace every event
+	(function () {
+		var originalTrigger = wp.media.view.MediaFrame.prototype.trigger;
+		wp.media.view.MediaFrame.prototype.trigger = function(a, b, c){
+			console.log('Event Triggered:', a, b, c, arguments);
+			originalTrigger.apply(this, Array.prototype.slice.call(arguments));
+		}
+	})();
+
 	$('#wp-media-sandbox-button').click(function () {
 		//var Frame = wp.media.view.Frame.extend({
 		//	className: 'media-frame',
@@ -272,6 +281,86 @@ jQuery(function ($) {
 			frame.content.set(new wp.media.View({
 				el: '<iframe width="480" height="360" src="//www.youtube.com/embed/v9hdMSr6Duc?version=3&enablejsapi=1" frameborder="0" allowfullscreen style="display: block; width: 100%; height: 100%;"></iframe>'
 			}));
+		});
+
+		frame.on('ready', function () {
+			// make modal window narrower
+			frame.$el.closest('.media-modal').addClass('smaller');
+		});
+
+		frame.on('close', function () {
+			// a way to stop playing youtube video
+			frame.content.render();
+		});
+
+		frame.open();
+
+	});
+
+
+	$('#wp-media-sandbox-4').click(function () {
+
+		// wp.media.view.MediaFrame gives us the following container
+		//
+		// <div class="media-frame wp-core-ui">
+		//     <div class="media-frame-menu">...</div>
+		//     <div class="media-frame-title">...</div>
+		//     <div class="media-frame-router">...</div>
+		//     <div class="media-frame-content">...</div>
+		//     <div class="media-frame-toolbar">...</div>
+		//     <div class="media-frame-uploader"><div class="uploader-window">
+		//         <div class="uploader-window-content">
+		//             <h3>Drop files to upload</h3>
+		//         </div>
+		//     </div>
+		// </div>
+		//
+
+		// How to use
+		// ----------
+		//
+		//    // replace .media-frame-title with custom html
+		//    // frame.title.set(new wp.media.View(...));
+		//
+		//    // replace .media-frame-menu with custom html
+		//    // frame.menu.set(new wp.media.View(...));
+		//
+		//    // replace .media-frame-router with custom html
+		//    // frame.router.set(new wp.media.View(...));
+		//
+		//    // replace .media-frame-content with custom html
+		//    // frame.content.set(new wp.media.View(...));
+		//
+		//    // replace .media-frame-toolbar with custom html
+		//    // frame.toolbar.set(new wp.media.View(...));
+
+		var CustomView = wp.media.View.extend({
+			render: function () {
+				this.$el.html('<p>Hello</p>');
+			}
+		});
+
+		var CustomFrame = wp.media.view.MediaFrame.extend({
+			initialize: function () {
+				wp.media.view.MediaFrame.prototype.initialize.apply(this, arguments);
+				// this.state = 'state1';
+				//this.states.add(
+				//	new wp.media.controller.State({
+				//		id: 'state1',
+				//		content: 'tab2',
+				//		menu: 'default', // comment to show
+				//		router: false, // 'router1', // false to hide
+				//		toolbar: 'toolbar1', // false to hide
+				//		title: 'Playing with .media-frame-router'
+				//}));
+			}
+		});
+
+		var frame = new CustomFrame({
+		});
+
+		frame.on('content:create:tab2', function (contentRegion) {
+			contentRegion.view = new CustomView();
 		});
 
 		frame.on('ready', function () {
